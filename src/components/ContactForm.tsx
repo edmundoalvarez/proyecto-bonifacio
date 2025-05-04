@@ -42,7 +42,7 @@ export function ContactForm() {
 
     return (
         <div
-            id="contactForm"
+            id="contactoForm"
             className="bg-[#0b1f3b] flex justify-center items-center w-full px-4"
         >
             <form

@@ -20,6 +20,7 @@
     "react-inlinesvg": "^4.2.0",
     "react-modal": "^3.16.3",
     "react-router-dom": "^7.5.3",
+    "react-scroll": "^1.9.3",
     "swiper": "^11.2.6"
   },
   "devDependencies": {

@@ -7,31 +7,10 @@ import { CustomButton } from "@/components/CustomButtonProp";
 export function Section01() {
     const handleScroll = () => {
         const target = document.getElementById("contactoForm");
-        if (!target) return;
-
-        const targetY = target.getBoundingClientRect().top + window.pageYOffset;
-        const startY = window.pageYOffset;
-        const duration = 1500; // duración en milisegundos (1.5 segundos)
-        const startTime = performance.now();
-
-        const easeInOutCubic = (t: number) =>
-            t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-
-        const animateScroll = (currentTime: number) => {
-            const timeElapsed = currentTime - startTime;
-            const progress = Math.min(timeElapsed / duration, 1);
-            const easedProgress = easeInOutCubic(progress);
-
-            window.scrollTo(0, startY + (targetY - startY) * easedProgress);
-
-            if (timeElapsed < duration) {
-                requestAnimationFrame(animateScroll);
-            }
-        };
-
-        requestAnimationFrame(animateScroll);
+        if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+        }
     };
-
     return (
         <div className="relative h-screen w-full overflow-hidden">
             {/* Video de fondo */}
