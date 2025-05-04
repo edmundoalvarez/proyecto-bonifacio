@@ -5,6 +5,12 @@ import logoNuevoEmprendimiento from "@/assets/logos/logos_nuevo-emprendimiento.s
 import { CustomButton } from "@/components/CustomButtonProp";
 
 export function Section01() {
+    const handleScroll = () => {
+        const target = document.getElementById("contactoForm");
+        if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+        }
+    };
     return (
         <div className="relative h-screen w-full overflow-hidden">
             {/* Video de fondo */}
@@ -34,7 +40,7 @@ export function Section01() {
                         <img className="w-full" src={logoNuevoEmprendimiento} />
                     </div>
                 </div>
-                <CustomButton label="Saber Más" />
+                <CustomButton label="Saber Más" onClick={handleScroll} />
             </div>
 
             {/* Capa oscura opcional */}
