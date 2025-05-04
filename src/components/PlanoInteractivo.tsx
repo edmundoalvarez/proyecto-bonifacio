@@ -290,7 +290,7 @@ export function PlanoInteractivo() {
                                     <FontAwesomeIcon icon={faTimes} size="xl" />
                                 </button>
 
-                                <div className="space-y-4 max-h-[80vh] overflow-y-auto p-4">
+                                <div className="space-y-4 max-h-[70vh] overflow-y-auto p-4">
                                     <h2 className="text-3xl text-[#bb9f7c] uppercase">
                                         Datos extra
                                     </h2>
