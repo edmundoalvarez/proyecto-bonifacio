@@ -130,69 +130,76 @@ export function PlanoInteractivo() {
     // };
 
     return (
-        <div className="w-full h-full flex flex-col lg:flex-row lg:justify-between xl:justify-end lg:items-between lg:content-start lg:gap-10 xl:gap-[10vw]">
+        <div
+            className="w-full h-full flex flex-col lg:flex-row lg:justify-between lg:items-between lg:content-start lg:gap-10 
+        
+        "
+        >
             <div
                 className="
-                w-full lg:w-1/4 xl:w-auto
-                h-[65vh] lg:h-[540px] xl:h-[600px]  
-                lg:ml-[6%] xl:ml-40 
-                lg:flex lg:flex-col lg:items-end lg:justify-end 
-                
-                "
+                m-auto 
+                lg:w-[80vw]
+                lg:max-w-[910px]
+                xl:w-[1100px]
+                xl:max-w-[1100px]
+                lg:flex lg:flex-col lg:justify-center lg:items-center lg:content-center lg:gap-20"
             >
-                <InlineSVG
-                    src={Plano}
-                    onLoad={handleLoad}
-                    innerRef={(ref: SVGElement | null) => {
-                        svgRef.current = ref as SVGSVGElement;
-                    }}
-                    className="
-                        w-full lg:w-[240px] xl:w-auto
+                <div className=" lg:flex lg:flex-row lg:gap-20 lg:w-full">
+                    {/* PLANO EDIFICIO */}
+                    <div
+                        className="
+                        w-full lg:w-1/4 
+                        h-[65vh] lg:h-[540px] 
+                        lg:ml-[6%]
+                        lg:flex lg:flex-col lg:items-end lg:justify-end
+                        
+                        "
+                    >
+                        <InlineSVG
+                            src={Plano}
+                            onLoad={handleLoad}
+                            innerRef={(ref: SVGElement | null) => {
+                                svgRef.current = ref as SVGSVGElement;
+                            }}
+                            className="
+                        w-full lg:w-[240px] 
                         h-full
                         
                     "
-                />
-            </div>
-            <div
-                className="
-                w-full h-full 
-                lg:max-w-[750px] xl:max-w-[1000px] 
-                py-6 lg:py-0 
-                lg:pt-8 
-                text-white 
-                lg:ml-0
-                lg:border-t lg:border-t-white"
-            >
-                {selected && departamentosData[selected] ? (
-                    <div
-                        key={selected}
-                        className="space-y-4 opacity-0 animate-fadeIn transition-opacity duration-500"
-                    >
-                        <div className="mt-10 lg:mt-0 mb-8 text-center lg:text-start">
-                            <h2 className="text-xl font-bold uppercase">
-                                {departamentosData[selected].titulo}
-                            </h2>
+                        />
+                    </div>
 
-                            <div className="lg:py-3">
-                                {departamentosData[selected].subtitulo.map(
-                                    (s, i) => (
-                                        <p
-                                            key={i}
-                                            className="text-sm italic text-white uppercase lg:text-lg"
-                                        >
-                                            {s}
-                                        </p>
-                                    )
-                                )}
-                            </div>
-                        </div>
+                    {selected && departamentosData[selected] ? (
+                        <div className="lg:w-3/4 ">
+                            <div
+                                key={selected}
+                                className="space-y-4 opacity-0 animate-fadeIn transition-opacity duration-500  lg:flex lg:flex-row-reverse lg:gap-10 xl:gap-10"
+                            >
+                                <div className="mt-10 lg:mt-0 mb-8 text-center lg:text-start xl:max-w-[350px]">
+                                    <h2 className="text-xl font-bold uppercase">
+                                        {departamentosData[selected].titulo}
+                                    </h2>
 
-                        <div>
-                            <div className="lg:flex lg:flex-row lg:justify-start lg:items-start lg:gap-[2rem] xl:gap-10">
+                                    <div className="lg:py-3 ">
+                                        {departamentosData[
+                                            selected
+                                        ].subtitulo.map((s, i) => (
+                                            <p
+                                                key={i}
+                                                className="text-sm italic text-white uppercase lg:text-lg"
+                                            >
+                                                {s}
+                                            </p>
+                                        ))}
+                                    </div>
+                                </div>
+
                                 <div
                                     className="
-                                    h-[65vh] lg:h-[365px] xl:h-[400px]
+                                    h-[65vh] lg:h-[540px]  
                                     lg:w-auto
+                                    xl:w-[370px]
+                                    xl:min-w-[270px]
                                     my-12 lg:my-0 
                                     lg:flex lg:flex-col lg:justify-start lg:items-start
                                     
@@ -203,124 +210,127 @@ export function PlanoInteractivo() {
                                         alt="Plano"
                                         className="
                                             w-full
-                                            h-full lg:h-full xl:h-[400px]
-                                            lg:min-w-[140px]  xl:min-w-[180px] 
-                                            xl:max-h-[400px] 
-                                            lg:min-h-[300px] xl:min-h-[400px]
+                                            h-full lg:h-full 
+                                            lg:min-w-[140px]  
+                                            xl:min-w-[300px]
+                                            lg:min-h-[300px] 
                                             lg:object-contain lg:object-top-left
                                             
                                             "
                                     />
                                 </div>
-                                <div className="relative w-full xl:mr-10">
-                                    <Swiper
-                                        spaceBetween={10}
-                                        slidesPerView={1}
-                                        pagination={{
-                                            clickable: true,
-                                        }}
-                                        navigation={{
-                                            nextEl: ".swiper-button-next",
-                                            prevEl: ".swiper-button-prev",
-                                        }}
-                                        modules={[Pagination, Navigation]}
-                                        className="
-                                        mt-16 ml-auto mr-4 lg:mt-0 lg:!ml-0 
-                                        z-10 
-                                        md:max-w-[540px] lg:max-w-[480px] xl:max-w-[540px]   
-                                        lg:w-full
-                                        "
-                                    >
-                                        {departamentosData[
-                                            selected
-                                        ].imagenes.map((img, idx) => (
-                                            <SwiperSlide key={idx}>
-                                                <div
-                                                    className="w-full 
-                                                    h-[50vw] md:h-[300px] lg:h-[320px] xl:h-[320px] 
-                                                    lg:min-h-[260px] 
-                                                    xl:max-h-[400px] 
-                                                    overflow-hidden 
-                                                    sm:rounded-md
-                                                    
-                                                    "
-                                                >
-                                                    <img
-                                                        src={img}
-                                                        alt={`Imagen ${idx}`}
-                                                        className="h-full w-full object-cover cursor-pointer "
-                                                        // onClick={() =>
-                                                        //     openModal(img)
-                                                        // }
-                                                    />
-                                                </div>
-                                            </SwiperSlide>
-                                        ))}
-                                        {/* Botones visibles solo desde lg */}
-                                        <div className="hidden lg:flex items-center justify-between absolute inset-y-1/2 w-full z-20 px-4 pointer-events-none">
-                                            <button className="lg:mt-[-20px] swiper-button-prev pointer-events-auto !text-white"></button>
-                                            <button className="lg:mt-[-100px] swiper-button-next pointer-events-auto !text-white"></button>
-                                        </div>
-                                    </Swiper>
-                                </div>
                             </div>
-                            <div className="text-center mt-16 lg:mt-4 xl:mt-10 lg:text-left">
+                        </div>
+                    ) : (
+                        ""
+                    )}
+                </div>
+
+                {selected && departamentosData[selected] ? (
+                    <div className=" w-[100vw]">
+                        <div className="relative w-full ">
+                            <Swiper
+                                spaceBetween={10}
+                                slidesPerView={1}
+                                pagination={{
+                                    clickable: true,
+                                }}
+                                navigation={{
+                                    nextEl: ".swiper-button-next",
+                                    prevEl: ".swiper-button-prev",
+                                }}
+                                modules={[Pagination, Navigation]}
+                                className="
+                                mt-16 ml-auto mr-4 lg:mt-0 
+                                z-10 
+                                md:max-w-[540px] 
+                                lg:max-w-[800px]
+                                xl:max-w-[1000px]
+                                lg:w-[80vw]
+                                lg:text-center
+                                "
+                            >
+                                {departamentosData[selected].imagenes.map(
+                                    (img, idx) => (
+                                        <SwiperSlide key={idx}>
+                                            <div
+                                                className="w-full 
+                                                h-[50vw] md:h-[300px] lg:h-[500px] xl:h-[530px]
+                                                lg:m-auto
+                                                
+                                                overflow-hidden 
+                                                sm:rounded-md
+                                                
+                                            "
+                                            >
+                                                <img
+                                                    src={img}
+                                                    alt={`Imagen ${idx}`}
+                                                    className="h-full w-full object-cover cursor-pointer "
+                                                    // onClick={() =>
+                                                    //     openModal(img)
+                                                    // }
+                                                />
+                                            </div>
+                                        </SwiperSlide>
+                                    )
+                                )}
+                                {/* Botones visibles solo desde lg */}
+                                <div className="hidden lg:flex items-center justify-between absolute inset-y-1/2 w-full z-20 px-4 pointer-events-none">
+                                    <button className="lg:mt-[-20px] swiper-button-prev pointer-events-auto !text-white"></button>
+                                    <button className="lg:mt-[-100px] swiper-button-next pointer-events-auto !text-white"></button>
+                                </div>
+                            </Swiper>
+                        </div>
+                        <div>
+                            <div className="text-center mt-16 lg:mt-4 xl:mt-10 lg:text-center">
                                 <CustomButton
                                     label="Ver más características de la unidad"
                                     className="uppercase"
                                     onClick={() => setDescripcionOpen(true)}
                                 />
                             </div>
-                        </div>
 
-                        <Modal
-                            isOpen={descripcionOpen}
-                            onRequestClose={() => setDescripcionOpen(false)}
-                            className="relative outline-none max-w-xl z-[99999] flex items-center justify-center"
-                            overlayClassName="fixed inset-0 bg-black/40 flex items-center justify-center z-[99999]"
-                            ariaHideApp={false}
-                        >
-                            <div className="relative outline-none max-w-xl w-[90%] bg-black/85 p-8 rounded-lg shadow-lg text-white z-[99999] border border-[#bb9f7c]">
-                                {/* Botón de cierre */}
-                                <button
-                                    onClick={() => setDescripcionOpen(false)}
-                                    className="absolute top-4 right-4 text-[#bb9f7c] hover:text-red"
-                                    aria-label="Cerrar"
-                                >
-                                    <FontAwesomeIcon icon={faTimes} size="xl" />
-                                </button>
+                            <Modal
+                                isOpen={descripcionOpen}
+                                onRequestClose={() => setDescripcionOpen(false)}
+                                className="relative outline-none max-w-xl z-[99999] flex items-center justify-center"
+                                overlayClassName="fixed inset-0 bg-black/40 flex items-center justify-center z-[99999]"
+                                ariaHideApp={false}
+                            >
+                                <div className="relative outline-none max-w-xl w-[90%] bg-black/85 p-8 rounded-lg shadow-lg text-white z-[99999] border border-[#bb9f7c]">
+                                    {/* Botón de cierre */}
+                                    <button
+                                        onClick={() =>
+                                            setDescripcionOpen(false)
+                                        }
+                                        className="absolute top-4 right-4 text-[#bb9f7c] hover:text-red"
+                                        aria-label="Cerrar"
+                                    >
+                                        <FontAwesomeIcon
+                                            icon={faTimes}
+                                            size="xl"
+                                        />
+                                    </button>
 
-                                <div className="space-y-4 max-h-[70vh] overflow-y-auto p-4">
-                                    <h2 className="text-3xl text-[#bb9f7c] uppercase">
-                                        Datos extra
-                                    </h2>
-                                    <ul className="list-disc pl-6 space-y-1 text-sm text-white flex flex-col gap-2">
-                                        {departamentosData[
-                                            selected
-                                        ].descripcion.map((item, index) => (
-                                            <li key={index}>{item}</li>
-                                        ))}
-                                    </ul>
+                                    <div className="space-y-4 max-h-[70vh] overflow-y-auto p-4">
+                                        <h2 className="text-3xl text-[#bb9f7c] uppercase">
+                                            Datos extra
+                                        </h2>
+                                        <ul className="list-disc pl-6 space-y-1 text-sm text-white flex flex-col gap-2">
+                                            {departamentosData[
+                                                selected
+                                            ].descripcion.map((item, index) => (
+                                                <li key={index}>{item}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                        </Modal>
-
-                        {/* <Modal
-                            isOpen={modalOpen}
-                            onRequestClose={() => setModalOpen(false)}
-                            className="outline-none z-[99999]" // contenido del modal
-                            overlayClassName="fixed inset-0 bg-black/50 flex items-center justify-center z-[99999]"
-                            ariaHideApp={false}
-                        >
-                            <img
-                                src={activeImage || ""}
-                                alt="Imagen ampliada"
-                                className="max-h-[90vh] max-w-[90vw] rounded shadow-lg"
-                            />
-                        </Modal> */}
+                            </Modal>
+                        </div>
                     </div>
                 ) : (
-                    <p>Seleccioná un departamento</p>
+                    ""
                 )}
             </div>
         </div>

@@ -61,9 +61,6 @@ li {
 }
 
 @media (min-width: 1024px) {
-    .swiper-pagination {
-        text-align: right !important;
-    }
     .swiper-button-prev::after,
     .swiper-button-next::after {
         font-size: 30px !important; /* Cambiá esto por el tamaño deseado */
