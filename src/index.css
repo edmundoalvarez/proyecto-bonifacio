@@ -1,68 +1,87 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import "tailwindcss";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    color: #bb9f7c;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+p,
+li,
+label {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 0px;
+    margin: 0px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+li {
+    font-weight: 300;
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+/* PAGINATION SWIPPER */
+/* Posicionar bullets debajo de la imagen */
+.swiper-pagination {
+    position: relative !important;
+    margin-top: 20px; /* separa los bullets de la imagen */
+    text-align: center;
+    z-index: 20;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Estilo de bullets normales */
+.swiper-pagination-bullet {
+    background: transparent !important; /* color de bullets inactivos */
+    border: solid 1px white !important;
+    opacity: 1 !important;
+}
+
+/* Estilo de bullet activo */
+.swiper-pagination-bullet-active {
+    background: #bb9f7c !important; /* color de bullet activo */
+    opacity: 1 !important;
+}
+
+/* Opcional: tamaño y borde redondeado */
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 9999px;
+}
+
+@media (min-width: 1024px) {
+    .swiper-pagination {
+        text-align: right !important;
+    }
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+        font-size: 30px !important; /* Cambiá esto por el tamaño deseado */
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        /* top: 50% !important; */
+        transform: translateY(-30%) !important;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 1.5s forwards;
 }
