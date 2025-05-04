@@ -121,13 +121,13 @@ export function PlanoInteractivo() {
         }
     }, [selected, zonas]);
 
-    const [modalOpen, setModalOpen] = useState(false);
-    const [activeImage, setActiveImage] = useState<string | null>(null);
+    // const [modalOpen, setModalOpen] = useState(false);
+    // const [activeImage, setActiveImage] = useState<string | null>(null);
 
-    const openModal = (img: string) => {
-        setActiveImage(img);
-        setModalOpen(true);
-    };
+    // const openModal = (img: string) => {
+    //     setActiveImage(img);
+    //     setModalOpen(true);
+    // };
 
     return (
         <div className="w-full h-full flex flex-col lg:flex-row lg:justify-between xl:justify-end lg:items-between lg:content-start lg:gap-10 xl:gap-[10vw]">
@@ -249,9 +249,9 @@ export function PlanoInteractivo() {
                                                         src={img}
                                                         alt={`Imagen ${idx}`}
                                                         className="h-full w-full object-cover cursor-pointer "
-                                                        onClick={() =>
-                                                            openModal(img)
-                                                        }
+                                                        // onClick={() =>
+                                                        //     openModal(img)
+                                                        // }
                                                     />
                                                 </div>
                                             </SwiperSlide>
