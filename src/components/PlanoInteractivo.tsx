@@ -198,7 +198,6 @@ export function PlanoInteractivo() {
                                     className="
                                     h-[65vh] lg:h-[540px]  
                                     lg:w-auto
-                                    xl:w-[370px]
                                     xl:min-w-[270px]
                                     my-12 lg:my-0 
                                     lg:flex lg:flex-col lg:justify-start lg:items-start
