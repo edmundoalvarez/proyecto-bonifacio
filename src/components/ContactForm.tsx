@@ -41,7 +41,10 @@ export function ContactForm() {
     };
 
     return (
-        <div className="bg-[#0b1f3b] flex justify-center items-center w-full px-4">
+        <div
+            id="contactForm"
+            className="bg-[#0b1f3b] flex justify-center items-center w-full px-4"
+        >
             <form
                 onSubmit={handleSubmit}
                 className="w-full max-w-3xl border border-[#bb9f7c] px-6 py-10 text-white"
