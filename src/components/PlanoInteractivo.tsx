@@ -244,7 +244,7 @@ export function PlanoInteractivo() {
                                 z-10 
                                 md:max-w-[540px] 
                                 lg:max-w-[800px]
-                                xl:max-w-[1000px]
+                                xl:max-w-[970px]
                                 lg:w-[80vw]
                                 lg:text-center
                                 "
@@ -254,7 +254,7 @@ export function PlanoInteractivo() {
                                         <SwiperSlide key={idx}>
                                             <div
                                                 className="w-full 
-                                                h-[50vw] md:h-[300px] lg:h-[500px] xl:h-[530px]
+                                                h-[50vw] md:h-[300px] lg:h-[500px] xl:h-[500px]
                                                 lg:m-auto
                                                 
                                                 overflow-hidden 
