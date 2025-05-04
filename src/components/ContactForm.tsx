@@ -20,7 +20,7 @@ export function ContactForm() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        const response = await fetch("/api/send-contact", {
+        /* const response = await fetch("/api/send-contact", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(form),
@@ -37,7 +37,7 @@ export function ContactForm() {
             });
         } else {
             alert("Error al enviar. Intente de nuevo.");
-        }
+        } */
     };
 
     return (
@@ -47,6 +47,7 @@ export function ContactForm() {
         >
             <form
                 onSubmit={handleSubmit}
+                action="https://formspree.io/f/mpwddawe"
                 className="w-full max-w-3xl border border-[#bb9f7c] px-6 py-10 text-white"
             >
                 <h2 className="text-center text-xl mb-10 font-semibold uppercase max-w-[300px] mx-auto">
