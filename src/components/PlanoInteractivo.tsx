@@ -254,7 +254,7 @@ export function PlanoInteractivo() {
                                         <SwiperSlide key={idx}>
                                             <div
                                                 className="w-full 
-                                                h-[50vw] md:h-[300px] lg:h-[500px] xl:h-[500px]
+                                                h-[60vw] md:h-[300px] lg:h-[500px] xl:h-[500px]
                                                 lg:m-auto
                                                 
                                                 overflow-hidden 
