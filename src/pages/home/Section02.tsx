@@ -2,7 +2,7 @@ import backgroundImg from "@/assets/images/render.png"; // o el path correspondi
 
 export function Section02() {
     return (
-        <div className="grid md:grid-rows-2 md:grid-cols-2 w-screen">
+        <div className="grid md:grid-rows-2 md:grid-cols-2 w-screen lg:h-screen">
             {/* DIV 1 */}
             <div className="bg-[#f4f4f4] flex items-center justify-center order-1 md:row-start-1 md:col-start-1 py-[100px] xl:py-[150px]  px-0 h-fit md:h-full">
                 <div className="flex flex-col justify-center items-center w-[80%]">
