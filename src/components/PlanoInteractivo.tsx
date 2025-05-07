@@ -16,6 +16,10 @@ export function PlanoInteractivo() {
     const [descripcionOpen, setDescripcionOpen] = useState(false);
     const [selected, setSelected] = useState<DepartamentoKey>("primerPiso01");
     const svgRef = useRef<SVGSVGElement | null>(null);
+    const [isSliderReady, setIsSliderReady] = useState(false);
+    const [loadTracker, setLoadTracker] = useState<{ [key: string]: boolean }>(
+        {}
+    );
 
     const zonas: DepartamentoKey[] = [
         "primerPiso01",
@@ -102,6 +106,7 @@ export function PlanoInteractivo() {
         } */
     };
 
+    // 1. Este se encarga solo de aplicar color
     useEffect(() => {
         const svg = svgRef.current;
         if (!svg || !selected) return;
@@ -119,8 +124,31 @@ export function PlanoInteractivo() {
             applyFillToChildren(el, "#457296");
             el.classList.add("selected");
         }
-    }, [selected, zonas]);
+        console.log(loadTracker);
+    }, [selected]);
 
+    // 2. Este se encarga de reiniciar el tracker al cambiar de bloque
+    useEffect(() => {
+        const imgs = departamentosData[selected].imagenes;
+        const newTracker: { [key: string]: boolean } = {};
+        imgs.forEach((img) => {
+            newTracker[img] = false;
+        });
+
+        setLoadTracker(newTracker);
+        setIsSliderReady(false);
+    }, [selected]);
+
+    const handleImageLoad = (imgUrl: string) => {
+        setLoadTracker((prev) => {
+            const updated = { ...prev, [imgUrl]: true };
+            const allLoaded = Object.values(updated).every(Boolean);
+            if (allLoaded) {
+                setIsSliderReady(true);
+            }
+            return updated;
+        });
+    };
     // const [modalOpen, setModalOpen] = useState(false);
     // const [activeImage, setActiveImage] = useState<string | null>(null);
 
@@ -216,6 +244,7 @@ export function PlanoInteractivo() {
                                             lg:object-contain lg:object-top-left
                                             
                                             "
+                                        loading="lazy"
                                     />
                                 </div>
                             </div>
@@ -225,21 +254,55 @@ export function PlanoInteractivo() {
                     )}
                 </div>
 
+                {departamentosData[selected].imagenes.map((img) => (
+                    <img
+                        key={`hidden-${img}`}
+                        src={img}
+                        onLoad={() => handleImageLoad(img)}
+                        className="hidden"
+                        alt={`Imagen ${departamentosData[selected].titulo}`}
+                        loading="lazy"
+                    />
+                ))}
+
                 {selected && departamentosData[selected] ? (
                     <div className=" w-[100vw]">
                         <div className="relative w-full ">
-                            <Swiper
-                                spaceBetween={10}
-                                slidesPerView={1}
-                                pagination={{
-                                    clickable: true,
-                                }}
-                                navigation={{
-                                    nextEl: ".swiper-button-next",
-                                    prevEl: ".swiper-button-prev",
-                                }}
-                                modules={[Pagination, Navigation]}
-                                className="
+                            {!isSliderReady ? (
+                                <div
+                                    className="
+                                mt-16 ml-auto md:mr-auto lg:mt-0 
+                                z-10 
+                                md:max-w-[540px] 
+                                lg:max-w-[800px]
+                                xl:max-w-[970px]
+                                lg:w-[80vw]
+                                lg:text-center
+                                lg:m-auto"
+                                >
+                                    <div
+                                        className="mt-16 ml-auto mr-auto md:mr-4 lg:mt-0 
+                                z-10 
+                                md:max-w-[540px] 
+                                lg:max-w-[800px]
+                                xl:max-w-[970px]
+                                lg:w-[80vw]
+                                lg:text-center w-full h-[60vw] md:h-[300px] lg:h-[500px] xl:h-[500px] bg-gray-600/40 animate-pulse md:rounded-md flex items-center justify-center"
+                                    ></div>
+                                </div>
+                            ) : (
+                                <Swiper
+                                    spaceBetween={10}
+                                    slidesPerView={1}
+                                    pagination={{
+                                        clickable: true,
+                                    }}
+                                    navigation={{
+                                        nextEl: ".swiper-button-next",
+                                        prevEl: ".swiper-button-prev",
+                                    }}
+                                    modules={[Pagination, Navigation]}
+                                    className="
                                 mt-16 ml-auto mr-4 lg:mt-0 
                                 z-10 
                                 md:max-w-[540px] 
@@ -248,12 +311,12 @@ export function PlanoInteractivo() {
                                 lg:w-[80vw]
                                 lg:text-center
                                 "
-                            >
-                                {departamentosData[selected].imagenes.map(
-                                    (img, idx) => (
-                                        <SwiperSlide key={idx}>
-                                            <div
-                                                className="w-full 
+                                >
+                                    {departamentosData[selected].imagenes.map(
+                                        (img, idx) => (
+                                            <SwiperSlide key={idx}>
+                                                <div
+                                                    className="w-full 
                                                 h-[60vw] md:h-[300px] lg:h-[500px] xl:h-[500px]
                                                 lg:m-auto
                                                 
@@ -261,25 +324,28 @@ export function PlanoInteractivo() {
                                                 sm:rounded-md
                                                 
                                             "
-                                            >
-                                                <img
-                                                    src={img}
-                                                    alt={`Imagen ${idx}`}
-                                                    className="h-full w-full object-cover cursor-pointer "
-                                                    // onClick={() =>
-                                                    //     openModal(img)
-                                                    // }
-                                                />
-                                            </div>
-                                        </SwiperSlide>
-                                    )
-                                )}
-                                {/* Botones visibles solo desde lg */}
-                                <div className="hidden lg:flex items-center justify-between absolute inset-y-1/2 w-full z-20 px-4 pointer-events-none">
-                                    <button className="lg:mt-[-20px] swiper-button-prev pointer-events-auto !text-white"></button>
-                                    <button className="lg:mt-[-100px] swiper-button-next pointer-events-auto !text-white"></button>
-                                </div>
-                            </Swiper>
+                                                >
+                                                    <img
+                                                        src={img}
+                                                        alt={`Imagen ${departamentosData[selected].titulo}`}
+                                                        className="h-full w-full object-cover cursor-pointer "
+                                                        loading="lazy"
+
+                                                        // onClick={() =>
+                                                        //     openModal(img)
+                                                        // }
+                                                    />
+                                                </div>
+                                            </SwiperSlide>
+                                        )
+                                    )}
+                                    {/* Botones visibles solo desde lg */}
+                                    <div className="hidden lg:flex items-center justify-between absolute inset-y-1/2 w-full z-20 px-4 pointer-events-none">
+                                        <button className="lg:mt-[-20px] swiper-button-prev pointer-events-auto !text-white"></button>
+                                        <button className="lg:mt-[-100px] swiper-button-next pointer-events-auto !text-white"></button>
+                                    </div>
+                                </Swiper>
+                            )}
                         </div>
                         <div>
                             <div className="text-center mt-16 lg:mt-4 xl:mt-10 lg:text-center">
