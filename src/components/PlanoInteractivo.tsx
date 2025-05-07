@@ -244,7 +244,6 @@ export function PlanoInteractivo() {
                                             lg:object-contain lg:object-top-left
                                             
                                             "
-                                        loading="lazy"
                                     />
                                 </div>
                             </div>
@@ -261,7 +260,6 @@ export function PlanoInteractivo() {
                         onLoad={() => handleImageLoad(img)}
                         className="hidden"
                         alt={`Imagen ${departamentosData[selected].titulo}`}
-                        loading="lazy"
                     />
                 ))}
 
@@ -329,7 +327,6 @@ export function PlanoInteractivo() {
                                                         src={img}
                                                         alt={`Imagen ${departamentosData[selected].titulo}`}
                                                         className="h-full w-full object-cover cursor-pointer "
-                                                        loading="lazy"
 
                                                         // onClick={() =>
                                                         //     openModal(img)
