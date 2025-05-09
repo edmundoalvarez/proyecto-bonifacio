@@ -2,7 +2,7 @@ import backgroundImg from "@/assets/images/render.png"; // o el path correspondi
 
 export function Section02() {
     return (
-        <div className="grid md:grid-rows-2 md:grid-cols-2 w-screen lg:h-screen">
+        <div className="grid md:grid-rows-2 md:grid-cols-2 w-screen lg:min-h-[1200px] lg:max-h-[1200px]">
             {/* DIV 1 */}
             <div className="bg-[#f4f4f4] flex items-center justify-center order-1 md:row-start-1 md:col-start-1 py-[100px] xl:py-[150px]  px-0 h-fit md:h-full">
                 <div className="flex flex-col justify-center items-center w-[80%]">
@@ -21,7 +21,7 @@ export function Section02() {
 
             {/* DIV 2 */}
             <div
-                className="w-full h-[600px] md:h-full bg-cover bg-[center_bottom] bg-no-repeat py-4 px-4 flex items-center justify-center order-2 md:row-span-2 md:col-start-2"
+                className="w-full h-[600px] md:h-full bg-cover bg-[bottom] bg-no-repeat py-4 px-4 flex items-center justify-center order-2 md:row-span-2 md:col-start-2"
                 style={{ backgroundImage: `url(${backgroundImg})` }}
             >
                 <div className="flex flex-col justify-center items-center border-2 w-full h-full border-[#bb9f7c]"></div>
