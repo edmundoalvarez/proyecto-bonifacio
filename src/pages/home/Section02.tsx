@@ -34,12 +34,12 @@ export function Section02() {
                         <h2 className="text-2xl xl:text-3xl max-w-[340px]">
                             UBICACIÓN
                         </h2>
-                        <p className="max-w-[340px] xl:max-w-[400px] text-sm xl:text-lg text-[#1e1e1e] md:text-[#f4f4f4]">
+                        <p className="max-w-[340px] xl:max-w-[380px] text-sm xl:text-lg text-[#1e1e1e] md:text-[#f4f4f4]">
                             En una ubicación estratégica en una de las áreas mas
-                            conectadas de la ciudad. A pocas cuadras de las
-                            estaciones del Subte Línea A, Línea H. Está próximo
-                            a avenidas principales como Carabobo, Directorio y
-                            Rivadavia.
+                            conectadas de la ciudad.
+                            <br />A pocas cuadras de las estaciones del Subte
+                            Línea A, Línea H. Está próximo a avenidas
+                            principales como Carabobo, Directorio y Rivadavia.
                         </p>
                     </div>
                 </div>

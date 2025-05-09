@@ -2,15 +2,15 @@ import backgroundVideo from "@/assets/videos/6945207-hd_1080_1920_30fps.mp4";
 import logoConstrucserv from "@/assets/logos/logos_construcserv.svg";
 import logoBonifacio from "@/assets/logos/logos_proyect-bonifacio.svg";
 import logoNuevoEmprendimiento from "@/assets/logos/logos_nuevo-emprendimiento.svg";
-import { CustomButton } from "@/components/CustomButtonProp";
+// import { CustomButton } from "@/components/CustomButtonProp";
 
 export function Section01() {
-    const handleScroll = () => {
+    /* const handleScroll = () => {
         const target = document.getElementById("contactoForm");
         if (target) {
             target.scrollIntoView({ behavior: "smooth" });
         }
-    };
+    }; */
     return (
         <div className="relative h-screen w-full overflow-hidden">
             {/* Video de fondo */}
@@ -40,7 +40,9 @@ export function Section01() {
                         <img className="w-full" src={logoNuevoEmprendimiento} />
                     </div>
                 </div>
-                <CustomButton label="Saber Más" onClick={handleScroll} />
+                <div className="h-[20px]">
+                    {/* <CustomButton label="Saber Más" onClick={handleScroll} /> */}
+                </div>
             </div>
 
             {/* Capa oscura opcional */}

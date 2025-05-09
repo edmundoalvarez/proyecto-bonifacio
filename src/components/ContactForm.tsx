@@ -156,7 +156,7 @@ export function ContactForm() {
                     )}
                 </div>
 
-                <div className="text-center mt-16">
+                <div className="text-center mt-8">
                     <button
                         type="submit"
                         className={`bg-[#082746] rounded-[8px] p-[4px] inline-block cursor-pointer hover:bg-[#0b3056] ease-in-out`}

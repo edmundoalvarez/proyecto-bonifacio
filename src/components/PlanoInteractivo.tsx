@@ -20,6 +20,7 @@ export function PlanoInteractivo() {
     const [loadTracker, setLoadTracker] = useState<{ [key: string]: boolean }>(
         {}
     );
+    const [hasUserClicked, setHasUserClicked] = useState(false);
 
     const zonas: DepartamentoKey[] = [
         "primerPiso01",
@@ -81,7 +82,12 @@ export function PlanoInteractivo() {
                 applyFillToChildren(el, "#457296");
                 el.classList.add("selected"); // ✅ marca como seleccionado
                 setSelected(id);
+                setHasUserClicked(true);
+                el.classList.remove("ping-overlay");
             });
+            if (!hasUserClicked) {
+                el.classList.add("ping-overlay");
+            }
         });
 
         const estructura = svg.querySelector(
@@ -139,6 +145,15 @@ export function PlanoInteractivo() {
         setIsSliderReady(false);
     }, [selected]);
 
+    useEffect(() => {
+        /* if (!hasUserClicked) {
+            const timeout = setTimeout(() => {
+                setHasUserClicked(true);
+            }, 8000);
+            return () => clearTimeout(timeout);
+        } */
+    }, [hasUserClicked]);
+
     const handleImageLoad = (imgUrl: string) => {
         setLoadTracker((prev) => {
             const updated = { ...prev, [imgUrl]: true };
@@ -174,27 +189,73 @@ export function PlanoInteractivo() {
             >
                 <div className=" lg:flex lg:flex-row lg:gap-20 lg:w-full">
                     {/* PLANO EDIFICIO */}
+
                     <div
-                        className="
+                        className=" w-full lg:w-1/4 
+                        h-[65vh] lg:h-[540px] 
+                        lg:ml-[6%]
+                        lg:flex lg:flex-col lg:items-end lg:justify-end relative"
+                    >
+                        {!hasUserClicked && (
+                            <div
+                                className="
+                                absolute inset-0 bg-black/70 z-50 border border-[#bb9f7c]
+                                flex items-center justify-center 
+                                text-white text-lg text-center 
+                                p-6 
+                                rounded-xl
+
+                                mt-[-20px] lg:mt-[-10%]
+                                left-1/2 -translate-x-[52%] lg:-translate-x-[56%] xl:-translate-x-[53%]
+                                w-[240px] lg:w-[260px] xl:w-[280px] 
+                                h-[110%]
+                                
+                                "
+                            >
+                                <div>
+                                    <p className="mb-4">
+                                        Seleccioná un departamento del edificio
+                                    </p>
+                                    <button
+                                        className="bg-[#bb9f7c] text-white px-4 py-1 rounded mt-6"
+                                        onClick={() => setHasUserClicked(true)}
+                                    >
+                                        Entendido
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+                        <div
+                            className="
                         w-full lg:w-1/4 
                         h-[65vh] lg:h-[540px] 
                         lg:ml-[6%]
                         lg:flex lg:flex-col lg:items-end lg:justify-end
                         
+                        
                         "
-                    >
-                        <InlineSVG
-                            src={Plano}
-                            onLoad={handleLoad}
-                            innerRef={(ref: SVGElement | null) => {
-                                svgRef.current = ref as SVGSVGElement;
-                            }}
-                            className="
+                        >
+                            <InlineSVG
+                                src={Plano}
+                                onLoad={handleLoad}
+                                innerRef={(ref: SVGElement | null) => {
+                                    svgRef.current = ref as SVGSVGElement;
+                                }}
+                                className="
                         w-full lg:w-[240px] 
                         h-full
                         
                     "
-                        />
+                            />
+                        </div>
+                        {/* <div className="m-auto mt-4">
+                            <p className="w-fit text-[#bb9f7c] text-sm text-center m-0">
+                                Hacé click en un departamento del edificio
+                            </p>
+                        </div> */}
+                        {/* <p className="absolute top-[-40px] left-4  text-[#bb9f7c] text-xs px-3 py-1 rounded-full animate-pulse z-50 pointer-events-none">
+                            Hacé clic en un departamento
+                        </p> */}
                     </div>
 
                     {selected && departamentosData[selected] ? (
@@ -203,7 +264,7 @@ export function PlanoInteractivo() {
                                 key={selected}
                                 className="space-y-4 opacity-0 animate-fadeIn transition-opacity duration-500  lg:flex lg:flex-row-reverse lg:gap-10 xl:gap-10"
                             >
-                                <div className="mt-10 lg:mt-0 mb-8 text-center lg:text-start xl:max-w-[350px]">
+                                <div className="mt-14 lg:mt-0 mb-8 text-center lg:text-start xl:max-w-[350px]">
                                     <h2 className="text-xl font-bold uppercase">
                                         {departamentosData[selected].titulo}
                                     </h2>
@@ -238,7 +299,7 @@ export function PlanoInteractivo() {
                                         className="
                                             w-full
                                             h-full lg:h-full 
-                                            lg:min-w-[140px]  
+                                            lg:min-w-[225px]  
                                             xl:min-w-[300px]
                                             lg:min-h-[300px] 
                                             lg:object-contain lg:object-top-left

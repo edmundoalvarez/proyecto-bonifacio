@@ -3,13 +3,13 @@
         "titulo": "1° Frente / Contrafrente",
         "subtitulo": [
             "3 ambientes con balcón y patio",
-            "SUP: 79 m² + BALCÓN 8 m²"
+            "SUP: 79 m² + BALCÓN 8 m² + PATIO 33 m²"
         ],
         "descripcion": [
             "Agua caliente",
             "Calefacción por piso radiante",
             "Instalaciones para aire acondicionado",
-            "Pisos de porcelanato",
+            "Pisos de porcelanato ILVA",
             "Frentes de placard",
             "Carpinterías en aluminio anodizado",
             "Baranda de balcón con terminaciones de aluminio anodizado",
@@ -17,10 +17,10 @@
             "Muebles bajo mesada y alacenas de melamina",
             "Mesada de celestone o granito",
             "Bacha de acero inoxidable",
-            "Griferías de primera calidad",
-            "Sanitarios de primera calidad",
-            "Revestimientos cerámicos",
-            "Bachas de apoyo",
+            "Griferías FV",
+            "Sanitarios Ferrum",
+            "Revestiminentos ILVA",
+            "Vanitorys",
             "Bañera enlosada",
             "Espejos y accesorios completos"
         ],
@@ -36,12 +36,15 @@
     },
     "segundoPiso01": {
         "titulo": "2° - 7° Frente / Contrafrente",
-        "subtitulo": ["3 ambientes con balcón", "SUP: 79 m² + BALCÓN 8 m²"],
+        "subtitulo": [
+            "3 ambientes con 2 suites y balcón",
+            "SUP: 79 m² + BALCÓN 11 m²"
+        ],
         "descripcion": [
             "Agua caliente por caldera dual individual.",
             "Calefacción por piso radiante.",
             "Instalaciones para aire acondicionado frío / calor.",
-            "Pisos de porcelanato.",
+            "Pisos de porcelanato ILVA.",
             "Frentes de placards corredizos y espejados.",
             "Carpinterías exteriores con marcos de aluminio anodizado.",
             "Baranda de balcones con vidrio de seguridad y terminaciones de aluminio anodizado.",
@@ -49,9 +52,9 @@
             "Muebles bajo mesada y alacenas de melamina.",
             "Mesada de celestone.",
             "Bacha de acero inoxidable.",
-            "Griferías de primera calidad.",
-            "Sanitarios de primera calidad.",
-            "Revestimientos en cerámica de primera calidad.",
+            "Griferías FV.",
+            "Sanitarios Ferrum.",
+            "Revestiminentos ILVA",
             "Bachas con vanitorys.",
             "Bañera enlosada.",
             "Espejos y accesorios colocados."
@@ -77,15 +80,15 @@
             "Anafe eléctrico.",
             "Instalación para lavaropa.",
             "Instalaciones para aire acondicionado frío / calor.",
-            "Pisos de porcelanato.",
+            "Pisos de porcelanato ILVA.",
             "Frentes de placards corredizos y espejados.",
             "Carpinterías exteriores con marcos de aluminio anodizado.",
             "Baranda de balcones con vidrio de seguridad y terminaciones de aluminio anodizado.",
             "Muebles bajo mesada y alacenas de melamina.",
             "Mesada de granito con bacha de acero inoxidable.",
-            "Griferías de primera calidad.",
-            "Sanitarios de primera calidad.",
-            "Revestimientos en cerámica de primera calidad.",
+            "Griferías FV.",
+            "Sanitarios Ferrum.",
+            "Revestiminentos ILVA",
             "Bacha con vanitory.",
             "Bañera enlosada.",
             "Espejos y accesorios colocados."
@@ -100,14 +103,14 @@
     "tercerPiso01": {
         "titulo": "8° Frente",
         "subtitulo": [
-            "3 ambientes con balcón terraza",
+            "3 ambientes con domirtorio en suite y balcón terraza",
             "SUP: 65 m² + BALCÓN TERRAZA 22 m²"
         ],
         "descripcion": [
             "Agua caliente por caldera dual individual.",
             "Calefacción por piso radiante.",
             "Instalaciones para aire acondicionado frío / calor.",
-            "Pisos de porcelanato.",
+            "Pisos de porcelanato ILVA.",
             "Frentes de placards corredizos y espejados.",
             "Carpinterías exteriores con marcos de aluminio anodizado.",
             "Baranda de balcones con vidrio de seguridad y terminaciones de aluminio anodizado.",
@@ -115,9 +118,9 @@
             "Muebles bajo mesada y alacenas de melamina.",
             "Mesada de celestone.",
             "Bacha de acero inoxidable.",
-            "Griferías de primera calidad.",
-            "Sanitarios de primera calidad.",
-            "Revestimientos en cerámica de primera calidad.",
+            "Griferías FV.",
+            "Sanitarios Ferrum.",
+            "Revestiminentos ILVA",
             "Bachas con vanitorys.",
             "Bañera enlosada.",
             "Espejos y accesorios colocados."
@@ -143,15 +146,15 @@
             "Anafe eléctrico.",
             "Instalación para lavaropa.",
             "Instalaciones para aire acondicionado frío / calor.",
-            "Pisos de porcelanato.",
+            "Pisos de porcelanato ILVA.",
             "Frentes de placards corredizos y espejados.",
             "Carpinterías exteriores con marcos de aluminio anodizado.",
             "Baranda de balcones con vidrio de seguridad y terminaciones de aluminio anodizado.",
             "Muebles bajo mesada y alacenas de melamina.",
             "Mesada de granito con bacha de acero inoxidable.",
-            "Griferías de primera calidad.",
-            "Sanitarios de primera calidad.",
-            "Revestimientos en cerámica de primera calidad.",
+            "Griferías FV.",
+            "Sanitarios Ferrum.",
+            "Revestiminentos ILVA",
             "Bacha con vanitory.",
             "Bañera enlosada.",
             "Espejos y accesorios colocados."
@@ -166,14 +169,14 @@
     "terraza": {
         "titulo": "9° Frente",
         "subtitulo": [
-            "3 ambientes con suites y balcón terraza con parrilla",
+            "3 ambientes con 2 suites y balcón terraza con parrilla",
             "SUP: 71 m² + BALCÓN TERRAZA 22 m²"
         ],
         "descripcion": [
             "Agua caliente por caldera dual individual.",
             "Calefacción por piso radiante.",
             "Instalaciones para aire acondicionado frío / calor.",
-            "Pisos de porcelanato.",
+            "Pisos de porcelanato ILVA.",
             "Frentes de placards corredizos y espejados.",
             "Carpinterías exteriores con marcos de aluminio anodizado.",
             "Baranda de balcones con vidrio de seguridad y terminaciones de aluminio anodizado.",
@@ -181,9 +184,9 @@
             "Muebles bajo mesada y alacenas de melamina.",
             "Mesada de celestone.",
             "Bacha de acero inoxidable.",
-            "Griferías de primera calidad.",
-            "Sanitarios de primera calidad",
-            "Revestimientos en cerámica de primera calidad.",
+            "Griferías FV.",
+            "Sanitarios Ferrum",
+            "Revestiminentos ILVA",
             "Bachas con vanitorys.",
             "Bañera enlosada.",
             "Espejos y accesorios colocados."

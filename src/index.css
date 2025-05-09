@@ -82,3 +82,28 @@ li {
 .animate-fadeIn {
     animation: fadeIn 1.5s forwards;
 }
+
+@keyframes ping-border {
+    0% {
+        border-width: 0px;
+        opacity: 1;
+    }
+    50% {
+        border-width: 10px;
+        opacity: 0.5;
+    }
+    100% {
+        border-width: 0px;
+        opacity: 1;
+    }
+}
+
+.ping-overlay {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 0px solid #bb9f7c;
+    border-radius: 50%;
+    animation: ping-border 1.2s ease-out infinite;
+    /* pointer-events: none; */
+}
