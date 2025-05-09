@@ -288,8 +288,9 @@ export function PlanoInteractivo() {
                                     h-[65vh] lg:h-[540px]  
                                     lg:w-auto
                                     xl:min-w-[270px]
-                                    my-12 lg:my-0 
+                                    my-12 mx-8 lg:my-0 
                                     lg:flex lg:flex-col lg:justify-start lg:items-start
+                                    
                                     
                                     "
                                 >
@@ -302,7 +303,7 @@ export function PlanoInteractivo() {
                                             lg:min-w-[225px]  
                                             xl:min-w-[300px]
                                             lg:min-h-[300px] 
-                                            lg:object-contain lg:object-top-left
+                                            object-contain object-top lg:object-top-left
                                             
                                             "
                                     />
